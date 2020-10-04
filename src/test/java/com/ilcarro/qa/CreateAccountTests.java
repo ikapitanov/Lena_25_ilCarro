@@ -5,47 +5,38 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends  TestBase{
-//preconditions: user shoud be logged out
+public class CreateAccountTests extends TestBase {
+    //preconditions: user shoud be logged out
     @BeforeMethod
-    public void ensurePreconditions(){
-        if(!isElementPresent(By.cssSelector("[href='/signup']"))){    //sign up not present
-           wd.findElement(By.xpath("//a[contains(., 'logOut')]")).click(); //click on logout button
+    public void ensurePreconditions() {
+        if (!isElementPresent(By.cssSelector("[href='/signup']"))) {    //sign up not present
+            click(By.xpath("//a[contains(., 'logOut')]"));
         }
     }
 
     @Test
-    public void testSignUp(){
+    public void testSignUp() {
         //click On SignUp button
-        wd.findElement(By.cssSelector("[href='/signup']")).click();
+        click(By.cssSelector("[href='/signup']"));
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
 
         //fill registration form
-        wd.findElement(By.cssSelector("#first_name")).click();
-        wd.findElement(By.cssSelector("#first_name")).clear();
-        wd.findElement(By.cssSelector("#first_name")).sendKeys("AS");
+        type(By.cssSelector("#first_name"), "AS");
+        type(By.cssSelector("#second_name"), "FV");
+        type(By.cssSelector("#email"), "aa@bb111.com");
+        type(By.cssSelector("#password"), "1Aaaaaaaa");
 
-        wd.findElement(By.cssSelector("#second_name")).click();
-        wd.findElement(By.cssSelector("#second_name")).clear();
-        wd.findElement(By.cssSelector("#second_name")).sendKeys("FV");
-
-        wd.findElement(By.cssSelector("#email")).click();
-        wd.findElement(By.cssSelector("#email")).clear();
-        wd.findElement(By.cssSelector("#email")).sendKeys("aa@bb109.com");
-
-        wd.findElement(By.cssSelector("#password")).click();
-        wd.findElement(By.cssSelector("#password")).clear();
-        wd.findElement(By.cssSelector("#password")).sendKeys("1Aaaaaaaa");
-
-        wd.findElement(By.cssSelector("#check_policy")).click();
-
-
+        click(By.cssSelector("#check_policy"));
 
         //click submit button
+        submitForm();
 
         //check, login form displayed
+        Assert.assertTrue(isLoginFormPresent());
     }
+
+
 
 
 }
