@@ -9,8 +9,8 @@ public class CreateAccountTests extends TestBase {
     //preconditions: user shoud be logged out
     @BeforeMethod
     public void ensurePreconditions() {
-        if (!isElementPresent(By.cssSelector("[href='/signup']"))) {    //sign up not present
-            click(By.xpath("//a[contains(., 'logOut')]"));
+        if (!isSignUpTabPresentInHeader()) {    //sign up not present
+            logOut();
         }
     }
 
@@ -24,7 +24,7 @@ public class CreateAccountTests extends TestBase {
         //fill registration form
         type(By.cssSelector("#first_name"), "AS");
         type(By.cssSelector("#second_name"), "FV");
-        type(By.cssSelector("#email"), "aa@bb111.com");
+        type(By.cssSelector("#email"), "aa@bb115.com");
         type(By.cssSelector("#password"), "1Aaaaaaaa");
 
         click(By.cssSelector("#check_policy"));

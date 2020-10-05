@@ -7,9 +7,11 @@ import org.testng.annotations.Test;
 public class LoginTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        //goTo login page
         if (!isLoginFormPresent()) {
-            click(By.cssSelector("[href='/login']"));
+            if(isUserLoggedIn()){
+                logOut();
+            }
+            clickLoginTabOnHeader();
         }
     }
 
