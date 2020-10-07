@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
+    //tests for logintn
     @BeforeMethod
     public void ensurePreconditions() {
         if (!isLoginFormPresent()) {
