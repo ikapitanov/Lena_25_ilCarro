@@ -8,10 +8,10 @@ public class AddCarTests extends TestBase{
     public void testFormLetTheCarWork(){
         // click(By.cssSelector(".let-carwork-style_let_car__location__30BIh"));
 
-        type(By.name("[name='country']"), "Israel");
+        type(By.name("country"), "Israel");
         type(By.cssSelector(".address"), "Balfour Street");
-        type(By.cssSelector(".distance_included"), "345");
-        type(By.cssSelector(".serial_number"), "123456");
+        type(By.cssSelector(".distance_included"), "500");
+        type(By.cssSelector(".serial_number"), "12345679");
         type(By.cssSelector(".brand"), "Volkswagen ");
         type(By.cssSelector(".model"), "Bora");
         type(By.cssSelector(".year"), "2002");
@@ -25,7 +25,7 @@ public class AddCarTests extends TestBase{
         type(By.cssSelector(".doors"),"4");
         type(By.cssSelector(".seats"), "5");
         type(By.cssSelector(".class"), "E");
-        type(By.name("[name='about']"), "dhfhjkglglgkmfjdk");
+        type(By.name("about"), "dhfhjkglglgkmfjdk");
         type(By.cssSelector(".type_feature"), "dfghjkl");
         type(By.cssSelector(".price"), "87");
 
