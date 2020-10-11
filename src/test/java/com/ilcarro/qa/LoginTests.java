@@ -26,16 +26,14 @@ public class LoginTests extends TestBase {
 
         submitForm();
         Assert.assertTrue(isUserLoggedIn());
-        String email = wd.findElement(By.cssSelector("[href='/account']")).getText();
+        String email = getEmailTextFromHeader();
         System.out.println(email);
         Assert.assertEquals(email, "aa@bb109.com");
 
 
     }
 
-    public void fillLoginForm(User user) {
-        type(By.name("email"), user.getEmail());
-        type(By.name("password"), user.getPassword());
-    }
+
+
 
 }
